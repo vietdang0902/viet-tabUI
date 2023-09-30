@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!-- Tab items -->
+        <div class="tabs">
+          <div class="tab-item active">
+            <i class="tab-icon fas fa-code"></i>
+            React
+          </div>
+          <div class="tab-item">
+            <i class="tab-icon fas fa-cog"></i>
+            Angular
+          </div>
+          <div class="tab-item">
+            <i class="tab-icon fas fa-plus-circle"></i>
+            Ember
+          </div>
+          <div class="tab-item">
+            <i class="tab-icon fas fa-pen-nib"></i>
+            Vue.JS
+          </div>
+          <div class="line"></div>
+        </div>
+      
+        <!-- Tab content -->
+        <div class="tab-content">
+          <div class="tab-pane active">
+            <h2>React</h2>
+            <p>React giúp việc tạo giao diện người dùng trở nên dễ dàng hơn. Thiết kế các chế độ xem đơn giản cho từng trạng thái trong ứng dụng , hiển thị đúng các thành phần phù hợp một cách hiệu quả khi dữ liệu của bạn thay đổi.</p>
+          </div>
+          <div class="tab-pane">
+            <h2>Angular</h2>
+            <p>Angular là một framework JavaScript và được viết bằng TypeScript. Google tạo ra framework này với mục đích viết nên giao diện web (Front-end) đúng chuẩn.</p>
+          </div>
+          <div class="tab-pane">
+            <h2>Ember</h2>
+            <p>Ember js ( tên thật là SproutCore MVC framework) là một framework mã nguồn mở JavaScript phía client dùng cho phát triển các ứng dụng web và sử dụng mô hình Model-View-Controller.</p>
+          </div>
+          <div class="tab-pane">
+            <h2>Vue.js</h2>
+            <p>Đầu tiên, VueJS là gì? VueJS là một framework mã nguồn mở của JavaScript được sử dụng để phát triển các giao diện web tương tác. Nó là một trong những framework nổi tiếng được sử dụng để đơn giản hóa việc phát triển web. VueJS tập trung vào view layer. </p>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const $ = document.querySelector.bind(document)
+        const $$ = document.querySelectorAll.bind(document)
+
+        const tabs = $$ ('.tab-item')
+        const panes = $$ ('.tab-pane')
+
+        const tabActive = $('.tab-item.active')
+        const line = $('.tabs .line')
+
+        line.style.left = tabActive.offsetLeft + 'px'
+        line.style.width = tabActive.offsetWidth + 'px'
+
+        tabs.forEach ((tab, index) => {
+            const pane = panes[index]
+            
+            tab.onclick = function () {
+                $('.tab-item.active').classList.remove('active')
+                $('.tab-pane.active').classList.remove('active')
+
+                line.style.left = this.offsetLeft + 'px'
+                line.style.width = this.offsetWidth + 'px'
+
+                this.classList.add('active')
+                pane.classList.add('active')
+            }
+        })
+            
+        
+      </script>
+</body>
+</html>
